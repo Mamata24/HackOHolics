@@ -47,9 +47,10 @@ const App = () => {
       .createUserWithEmailAndPassword(emailID, password)
       .catch(err => {
         switch (err.code) {
-          case "auth/email-already-exists":
+          case "auth/email-already-in-use":
           case "auth/invalid-email":
             setEmailIDErr(err.message);
+            console.log(err.message)
             break;
           case "auth/weak-password":
             setPasswordErr(err.message)
@@ -92,8 +93,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {user ? (<Trial handleLogout={handleLogout} />,
-        console.log(user)
+      {user ? (<Trial handleLogout={handleLogout} />
       ) : (
           <Login
             emailID={emailID}
