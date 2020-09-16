@@ -17,10 +17,10 @@ const Login = (props) => {
         <section className="login">
             <div className="loginContainer">
                 <label>Username</label>
-                <input type="text" onFocus required value={emailID} onChange={(e) => setEmailID(e.target.value)} />
+                <input type="text" autoFocus required value={emailID} onChange={(e) => setEmailID(e.target.value)} />
                 <p className="errorMsg">{emailIDErr}</p>
                 <label>Password</label>
-                <input type="password" onFocus required value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
                 <p className="errorMsg">{passwordErr}</p>
                 <div className="btnContainer">
                     {accountHolder ? (
