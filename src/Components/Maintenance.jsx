@@ -188,7 +188,7 @@ function Maintenance() {
                 <input type="submit" value="Submit" />
             </form>
         </div>
-    );
+    )
 }
 
 export default Maintenance;
