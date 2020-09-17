@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useHistory } from 'react-router-dom'
 function Navbar() {
+    const history = useHistory()
+    const handleLogout = (e) => {
+        history.push('/')
+    }
     return (
         <div
             style={{
@@ -43,11 +47,12 @@ function Navbar() {
                     View/Renew Agreement
                 </Link>
             </div>
-            <button
+            <button onClick={handleLogout}
                 style={{
                     border: '1px solid black',
                     background: 'white',
                     borderRadius: '4px',
+                    width: 'max-content'
                 }}
             >
                 Logout
