@@ -1,6 +1,6 @@
 import React from 'react';
-import Dashboard from '../Dashboard';
-import Maintenance from '../Maintenance';
+import Dashboard from '../Components/Dashboard';
+import Maintenance from '../Components/Maintenance';
 import { Switch, Route, Link } from 'react-router-dom';
 
 function Routes() {
