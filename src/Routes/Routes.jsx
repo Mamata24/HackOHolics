@@ -1,4 +1,5 @@
 import React from 'react';
+import Login1 from '../Components/Login1'
 import Dashboard from '../Components/Dashboard';
 import Maintenance from '../Components/Maintenance';
 import { Switch, Route, Link } from 'react-router-dom';
@@ -9,7 +10,7 @@ function Routes() {
             <Route
                 exact
                 path="/"
-                render={() => <Link to="/Dashboard">Dashboard</Link>}
+                render={(props) => <Login1 {...props} />}
             />
             <Route exact path="/Dashboard" render={() => <Dashboard />} />
             <Route exact path="/Maintenance" render={() => <Maintenance />} />
