@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom'
-function Navbar() {
-    const history = useHistory()
+import { useHistory } from 'react-router-dom';
+function Navbar({ currLoc }) {
+    const history = useHistory();
     const handleLogout = (e) => {
-        history.push('/')
-    }
+        history.push('/');
+    };
     return (
         <div
             style={{
@@ -18,8 +18,33 @@ function Navbar() {
                 fontFamily: 'Roboto',
             }}
         >
-            <h1 style={{ color: 'white' }}>Heritage Homes</h1>
+            <Link
+                style={{
+                    color: 'white',
+                    textDecoration: 'none',
+                    fontSize: 'x-large',
+                    fontWeight: 'bold',
+                }}
+                to="/Maintenance"
+            >
+                Heritage Homes
+            </Link>
             <div style={{ fontSize: 'larger' }}>
+                <Link
+                    style={{
+                        textDecoration: 'none',
+                        color: 'white',
+                        backgroundColor:
+                            currLoc === 'maintenance'
+                                ? '#283593'
+                                : 'transparent',
+                        padding: '4px 10px',
+                        borderRadius: '5px',
+                    }}
+                    to="/Maintenance"
+                >
+                    Request Maintenance
+                </Link>
                 <Link
                     style={{
                         margin: '0 40px',
@@ -30,12 +55,7 @@ function Navbar() {
                 >
                     Pay Rent
                 </Link>
-                <Link
-                    style={{ textDecoration: 'none', color: 'white' }}
-                    to="/Maintenance"
-                >
-                    Request Maintenance
-                </Link>
+
                 <Link
                     style={{
                         margin: '0 40px',
@@ -47,13 +67,15 @@ function Navbar() {
                     View/Renew Agreement
                 </Link>
             </div>
-            <button onClick={handleLogout}
+            <button
+                onClick={handleLogout}
                 style={{
                     border: '1px solid black',
                     background: 'white',
                     color: 'black',
                     borderRadius: '4px',
-                    width: 'max-content'
+                    padding: '8px 15px',
+                    width: 'max-content',
                 }}
             >
                 Logout

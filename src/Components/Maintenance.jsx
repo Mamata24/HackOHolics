@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Navbar from './Navbar';
 
 function FormItem(props) {
     return (
         <div
-            style={{ display: 'flex', flexDirection: 'column', width: '320px' }}
+            style={{ display: 'flex', flexDirection: 'column', width: '100%' }}
         >
             {props.children}
         </div>
@@ -63,132 +64,179 @@ function Maintenance() {
     }
 
     return (
-        <div
-            style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '20px 0 40px 0',
-            }}
-        >
-            <h2 style={{ margin: '40px 0' }}>Maintenance Request Form</h2>
-            <form onSubmit={handleSubmit}>
-                <FormItem>
-                    <label
-                        style={{ fontWeight: '600', fontFamily: 'sans-serif' }}
-                    >
-                        Full Name
-                    </label>
-                    <div
-                        style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                        }}
-                    >
+        <React.Fragment>
+            <Navbar currLoc={'maintenance'} />
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '40px 0',
+                    background: 'whitesmoke',
+                }}
+            >
+                <form
+                    onSubmit={handleSubmit}
+                    style={{
+                        background: '#322c59',
+                        padding: '0 40px 20px 40px',
+                        color: 'white',
+                    }}
+                >
+                    <h1 style={{ margin: '40px 0' }}>
+                        Maintenance Request Form
+                    </h1>
+                    <FormItem>
+                        <label
+                            style={{
+                                fontWeight: '600',
+                                fontFamily: 'sans-serif',
+                            }}
+                        >
+                            Full Name
+                        </label>
+                        <div
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                            }}
+                        >
+                            <input
+                                value={firstname}
+                                onChange={(e) => setFirstname(e.target.value)}
+                                style={{ margin: '10px 0', width: '200px' }}
+                                placeholder="Enter first name"
+                            />
+                            <input
+                                value={lastname}
+                                onChange={(e) => setLastname(e.target.value)}
+                                style={{ margin: '10px 0', width: '200px' }}
+                                placeholder="Enter last name"
+                            />
+                        </div>
+                    </FormItem>
+                    <FormItem>
+                        <label
+                            style={{
+                                fontWeight: '600',
+                                fontFamily: 'sans-serif',
+                            }}
+                        >
+                            Email
+                        </label>
                         <input
-                            value={firstname}
-                            onChange={(e) => setFirstname(e.target.value)}
-                            style={{ margin: '10px 0', width: '140px' }}
-                            placeholder="Enter first name"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            type="email"
+                            style={{ margin: '10px 0', width: '100%' }}
+                            placeholder="Enter email"
                         />
+                    </FormItem>
+                    <FormItem>
+                        <label
+                            htmlFor="house_no"
+                            style={{
+                                fontWeight: '600',
+                                fontFamily: 'sans-serif',
+                            }}
+                        >
+                            House Number
+                        </label>
                         <input
-                            value={lastname}
-                            onChange={(e) => setLastname(e.target.value)}
-                            style={{ margin: '10px 0', width: '140px' }}
-                            placeholder="Enter last name"
+                            value={houseNo}
+                            onChange={(e) => setHouseNo(e.target.value)}
+                            style={{ margin: '10px 0' }}
+                            id="house_no"
+                            type="text"
+                            placeholder="Enter house number"
                         />
-                    </div>
-                </FormItem>
-                <FormItem>
-                    <label
-                        style={{ fontWeight: '600', fontFamily: 'sans-serif' }}
-                    >
-                        Email
-                    </label>
+                    </FormItem>
+                    <FormItem>
+                        <label
+                            style={{
+                                fontWeight: '600',
+                                fontFamily: 'sans-serif',
+                            }}
+                        >
+                            Preffered Schedule
+                        </label>
+                        <select
+                            value={schedule}
+                            onChange={(e) => setSchedule(e.target.value)}
+                            style={{ margin: '10px 0' }}
+                        >
+                            <option value="Anytime">Anytime</option>
+                            <option value="Immediate">Immediate</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Evening">Evening</option>
+                        </select>
+                    </FormItem>
+                    <FormItem>
+                        <label
+                            style={{
+                                fontWeight: '600',
+                                fontFamily: 'sans-serif',
+                            }}
+                        >
+                            Problem Category
+                        </label>
+                        <select
+                            value={category}
+                            onChange={(e) => setCategory(e.target.value)}
+                            style={{ margin: '10px 0' }}
+                        >
+                            <option value="Electrical">Electrical</option>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Light Fixtures">
+                                Light Fixtures
+                            </option>
+                            <option value="Pest Control">Pest Control</option>
+                            <option value="Kitchen">Kitchen</option>
+                            <option value="Lost Key">Lost Key</option>
+                        </select>
+                    </FormItem>
+                    <FormItem>
+                        <label
+                            style={{
+                                fontWeight: '600',
+                                fontFamily: 'sans-serif',
+                            }}
+                        >
+                            Problem Description
+                        </label>
+                        <textarea
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            placeholder="Enter short description of problem"
+                            style={{
+                                margin: '10px 0',
+                                minHeight: '200px',
+                                maxHeight: '200px',
+                                minWidth: '100%',
+                                maxWidth: '100%',
+                                padding: '10px',
+                            }}
+                        />
+                    </FormItem>
                     <input
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        type="email"
-                        style={{ margin: '10px 0', width: '277px' }}
-                        placeholder="Enter email"
-                    />
-                </FormItem>
-                <FormItem>
-                    <label
-                        htmlFor="house_no"
-                        style={{ fontWeight: '600', fontFamily: 'sans-serif' }}
-                    >
-                        House Number
-                    </label>
-                    <input
-                        value={houseNo}
-                        onChange={(e) => setHouseNo(e.target.value)}
-                        style={{ margin: '10px 0' }}
-                        id="house_no"
-                        type="text"
-                        placeholder="Enter house number"
-                    />
-                </FormItem>
-                <FormItem>
-                    <label
-                        style={{ fontWeight: '600', fontFamily: 'sans-serif' }}
-                    >
-                        Preffered Schedule
-                    </label>
-                    <select
-                        value={schedule}
-                        onChange={(e) => setSchedule(e.target.value)}
-                        style={{ margin: '10px 0' }}
-                    >
-                        <option value="Anytime">Anytime</option>
-                        <option value="Immediate">Immediate</option>
-                        <option value="Morning">Morning</option>
-                        <option value="Afternoon">Afternoon</option>
-                        <option value="Evening">Evening</option>
-                    </select>
-                </FormItem>
-                <FormItem>
-                    <label
-                        style={{ fontWeight: '600', fontFamily: 'sans-serif' }}
-                    >
-                        Problem Category
-                    </label>
-                    <select
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                        style={{ margin: '10px 0' }}
-                    >
-                        <option value="Electrical">Electrical</option>
-                        <option value="Plumbing">Plumbing</option>
-                        <option value="Light Fixtures">Light Fixtures</option>
-                        <option value="Pest Control">Pest Control</option>
-                        <option value="Kitchen">Kitchen</option>
-                        <option value="Lost Key">Lost Key</option>
-                    </select>
-                </FormItem>
-                <FormItem>
-                    <label
-                        style={{ fontWeight: '600', fontFamily: 'sans-serif' }}
-                    >
-                        Problem Description
-                    </label>
-                    <textarea
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        placeholder="Enter short description of problem"
+                        type="submit"
+                        value="Submit"
                         style={{
-                            margin: '10px 0',
-                            height: '200px',
-                            width: '300px',
-                            padding: '10px',
+                            background: '#603bbb',
+                            border: 'none',
+                            padding: '10px 60px',
+                            margin: '20px auto',
+                            color: 'white',
+                            fontSize: 'larger',
+                            width: '100%',
                         }}
                     />
-                </FormItem>
-                <input type="submit" value="Submit" />
-            </form>
-        </div>
-    )
+                </form>
+            </div>
+        </React.Fragment>
+    );
 }
 
 export default Maintenance;
