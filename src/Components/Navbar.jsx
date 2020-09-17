@@ -14,7 +14,7 @@ function Navbar() {
                 fontFamily: 'Roboto',
             }}
         >
-            <h1 style={{ color: 'white' }}>Heritage Houses</h1>
+            <h1 style={{ color: 'white' }}>Heritage Homes</h1>
             <div style={{ fontSize: 'larger' }}>
                 <Link
                     style={{

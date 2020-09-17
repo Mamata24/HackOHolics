@@ -2,6 +2,7 @@ import React from 'react';
 import Dashboard from '../Components/Dashboard';
 import Maintenance from '../Components/Maintenance';
 import { Switch, Route, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Routes() {
     return (
