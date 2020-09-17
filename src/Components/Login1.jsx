@@ -39,8 +39,6 @@ class Login1 extends Component {
             .catch(error => {
                 alert("You entered wrong credentials")
             })
-
-
     }
     render() {
         const { user_email, password } = this.state

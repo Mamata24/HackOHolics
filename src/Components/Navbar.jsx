@@ -51,6 +51,7 @@ function Navbar() {
                 style={{
                     border: '1px solid black',
                     background: 'white',
+                    color: 'black',
                     borderRadius: '4px',
                     width: 'max-content'
                 }}
