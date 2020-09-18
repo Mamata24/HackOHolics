@@ -13,13 +13,15 @@ function FormItem(props) {
 }
 
 function Maintenance() {
-    const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
-    const [email, setEmail] = useState('');
-    const [houseNo, setHouseNo] = useState('');
-    const [category, setCategory] = useState('Electrical');
-    const [description, setDescription] = useState('');
-    const [schedule, setSchedule] = useState('Anytime');
+    const [firstname, setFirstname] = useState('Barry');
+    const [lastname, setLastname] = useState('Allen');
+    const [email, setEmail] = useState('mrkanthony98@gmail.com');
+    const [houseNo, setHouseNo] = useState('303');
+    const [category, setCategory] = useState('Plumbing');
+    const [description, setDescription] = useState(
+        'Water is leaking from the kitchen sink'
+    );
+    const [schedule, setSchedule] = useState('Evening');
     const [sent, setSent] = useState(false);
 
     async function handleSubmit(e) {
