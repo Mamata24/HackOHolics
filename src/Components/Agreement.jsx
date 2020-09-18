@@ -15,6 +15,8 @@ function Agreement() {
                 </span>
                 <div style={{ margin: '30px 0' }}>
                     <a
+                        rel="noopener noreferrer"
+                        target="_blank"
                         style={{
                             margin: '0 30px',
                             padding: '8px 20px',
