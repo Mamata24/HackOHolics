@@ -50,21 +50,24 @@ function Navbar({ currLoc }) {
                         margin: '0 40px',
                         textDecoration: 'none',
                         color: 'white',
+                        backgroundColor:
+                            currLoc === 'Agreement' ? '#283593' : 'transparent',
+                        padding: '4px 10px',
+                        borderRadius: '5px',
                     }}
-                    to="/PayRent"
+                    to="/Agreement"
                 >
-                    Pay Rent
+                    View/Renew Agreement
                 </Link>
-
                 <Link
                     style={{
                         margin: '0 40px',
                         textDecoration: 'none',
                         color: 'white',
                     }}
-                    to="/RentalAgt"
+                    to="/PayRent"
                 >
-                    View/Renew Agreement
+                    Pay Rent
                 </Link>
             </div>
             <button
