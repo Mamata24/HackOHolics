@@ -20,6 +20,7 @@ function Maintenance() {
     const [category, setCategory] = useState('Electrical');
     const [description, setDescription] = useState('');
     const [schedule, setSchedule] = useState('Anytime');
+    const [sent, setSent] = useState(false);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -60,6 +61,12 @@ function Maintenance() {
                 `http://localhost:5000/postrequest?firstname=${firstname}&lastname=${lastname}&email=${email}&houseNo=${houseNo}&category=${category}&description=${description}&schedule=${schedule}&doc_no=${doc_no}`
             )
             .then((res) => console.log(res.data))
+            .then(() => {
+                setSent(true);
+                setTimeout(() => {
+                    setSent(false);
+                }, 2000);
+            })
             .catch((err) => console.log(err));
     }
 
@@ -74,8 +81,26 @@ function Maintenance() {
                     justifyContent: 'center',
                     padding: '40px 0',
                     background: 'whitesmoke',
+                    position: 'relative',
                 }}
             >
+                <div
+                    style={{
+                        position: 'absolute',
+                        top: '300px',
+                        margin: 'auto',
+                        borderRadius: '5px',
+                        color: 'white',
+                        background: '#1976D2',
+                        padding: '60px',
+                        zIndex: '2',
+                        fontSize: 'x-large',
+                        fontWeight: 'bold',
+                        display: sent === true ? 'block' : 'none',
+                    }}
+                >
+                    Request Sent
+                </div>
                 <form
                     onSubmit={handleSubmit}
                     style={{
