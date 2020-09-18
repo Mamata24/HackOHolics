@@ -59,16 +59,20 @@ function Navbar({ currLoc }) {
                 >
                     View/Renew Agreement
                 </Link>
-                <Link
+                {/* <Link
                     style={{
                         margin: '0 40px',
                         textDecoration: 'none',
                         color: 'white',
+                        backgroundColor:
+                            currLoc === 'payment' ? '#283593' : 'transparent',
+                        padding: '4px 10px',
+                        borderRadius: '5px',
                     }}
-                    to="/PayRent"
+                    to="/Payment"
                 >
                     Pay Rent
-                </Link>
+                </Link> */}
             </div>
             <button
                 onClick={handleLogout}
